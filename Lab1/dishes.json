@@ -1,0 +1,274 @@
+{
+    "dishes": [
+        {
+            "keyword": "borsch",
+            "name": "Борщ",
+            "price": 111,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "https://mangal-xaus-pyatigorsk.ru/wp-content/uploads/2024/05/borshh-2.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "uha",
+            "name": "Уха",
+            "price": 201,
+            "category": "суп",
+            "volume": "300 г",
+            "image": "https://rklaguna.ru/a/rklaguna/files/multifile/2353/P3150542.JPG",
+            "kind": "fish"
+        },
+        {
+            "keyword": "gribnoy cream-soup",
+            "name": "Грибной крем-суп",
+            "price": 150,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "https://static.tildacdn.com/tild6461-6565-4264-b338-666134373334/photo.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "solyanka",
+            "name": "Солянка",
+            "price": 114,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "https://gryadushka.ru/wp-content/uploads/2023/02/img_2873.jpeg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "buyabes",
+            "name": "Буйабес",
+            "price": 190,
+            "category": "суп",
+            "volume": "300 г",
+            "image": "https://i.pinimg.com/736x/65/cc/9e/65cc9e615c654a4f6651b095b91c946a.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "gazpacho",
+            "name": "Гаспачо",
+            "price": 150,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "https://avatars.mds.yandex.net/i?id=fd389a6a552ef0ce710ca92934b58ffc_l-10518571-images-thumbs&n=13",
+            "kind": "veg"
+        },
+        {
+            "keyword": "carbonara",
+            "name": "Карбонара",
+            "price": 202,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "https://i.pinimg.com/736x/be/13/d7/be13d75b9f9f703e384a111517949842.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "plov",
+            "name": "Плов",
+            "price": 252,
+            "category": "главное блюдо",
+            "volume": "300 г",
+            "image": "https://avatars.mds.yandex.net/get-altay/4200646/2a00000176334a1356efae251314afd1c2b7/XXL_height",
+            "kind": "meat"
+        },
+        {
+            "keyword": "fishpie",
+            "name": "Рыбацкий пирог",
+            "price": 283,
+            "category": "главное блюдо",
+            "volume": "230 г",
+            "image": "https://i.pinimg.com/736x/12/55/2c/12552c31ecf814073e782a0b616289b8.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "redfish",
+            "name": "Рыбацкий пирог",
+            "price": 253,
+            "category": "главное блюдо",
+            "volume": "230 г",
+            "image": "https://runews24.ru/assets/images/uploads/pictures/2020/09/ab5c43d75db216663cabe28f69eaf7fda33bcf0ea04248a8c6ab69867ea7cd85.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "grechka",
+            "name": "Гречка с капустой и морковью",
+            "price": 263,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "https://i3.wp.com/www.vsegdavkusno.ru/assets/images/recipes/2264/1.jpg?resize=728%2C728&ssl=1",
+            "kind": "veg"
+        },
+        {
+            "keyword": "hunshao",
+            "name": "Баклажаны Хуншао",
+            "price": 240,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "https://sun9-21.userapi.com/impg/oXo3yCYjpXRycnZ9Zv5Iqjki-s9YVBwOaVzD5Q/Jm3QP9nOm6o.jpg?size=1076x1080&quality=96&sign=7e505fd2b69285570617e1a02f54ff0f&c_uniq_tag=s3CStZxqI8LpFlq4PtYCZT4qNiDwI1R3PTeS91lhOwo&type=album",
+            "kind": "veg"
+        },
+        {
+            "keyword": "apple",
+            "name": "Яблочный сок",
+            "price": 150,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "https://avatars.mds.yandex.net/get-shedevrum/12733905/922cfc06c05711ee9dbd4225b8a7f943/orig",
+            "kind": "cold"
+        },
+        {
+            "keyword": "cherry",
+            "name": "Вишневый сок",
+            "price": 150,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "https://i.pinimg.com/736x/3a/f6/27/3af627c13795d93d2a97249fc6f367f7.jpg",
+            "kind": "cold"
+        },
+        {
+            "keyword": "water",
+            "name": "Вода",
+            "price": 100,
+            "category": "напиток",
+            "volume": "150 мл",
+            "image": "https://masterpiecer-images.s3.yandex.net/2fc7514b8d4411eea7d292669a1675b3:upscaled",
+            "kind": "cold"
+        },
+        {
+            "keyword": "tea",
+            "name": "Черный чай",
+            "price": 150,
+            "category": "напиток",
+            "volume": "200 мл",
+            "image": "https://www.nifeislife.com/img/c/578.jpg",
+            "kind": "hot"
+        },
+        {
+            "keyword": "latte",
+            "name": "Латте",
+            "price": 150,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6518021545c0495f1349c4a4_6518026c69319f27a49cb73b/scale_1200",
+            "kind": "hot"
+        },
+        {
+            "keyword": "americano",
+            "name": "Американо",
+            "price": 150,
+            "category": "напиток",
+            "volume": "200 мл",
+            "image": "https://cdn-ru4.foodpicasso.com/assets/2023/11/07/83f138a438795982449db3cdc14ebd80---png_1000x_103c0_convert.png",
+            "kind": "hot"
+        },
+        {
+            "keyword": "greek",
+            "name": "Греческий салат",
+            "price": 200,
+            "category": "салат",
+            "volume": "250 г",
+            "image": "https://static.tildacdn.com/stor3662-3530-4233-b831-353964616232/30504440.png",
+            "kind": "veg"
+        },
+        {
+            "keyword": "caesar",
+            "name": "Салат цезарь",
+            "price": 190,
+            "category": "салат",
+            "volume": "270 г",
+            "image": "https://main-cdn.sbermegamarket.ru/big1/hlr-system/-18/671/375/021/419/57/100030440110b0.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "tuna",
+            "name": "Салат с тунцом",
+            "price": 175,
+            "category": "салат",
+            "volume": "260 г",
+            "image": "https://i.pinimg.com/736x/81/46/14/8146142d672cdf338374f37e087e67a7.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "tears",
+            "name": "Салат мужские слёзы",
+            "price": 250,
+            "category": "салат",
+            "volume": "250 г",
+            "image": "https://ideireceptov.ru/wp-content/uploads/2022/11/salat-muzhskie-slezy.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "redsea",
+            "name": "Салат Красное море",
+            "price": 175,
+            "category": "салат",
+            "volume": "260 г",
+            "image": "https://cdn4.imgbb.ru/community/305/3050445/201902/f204a94bdb44db6250bc2cf60c7533db.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "salad",
+            "name": "Салат капуста с уксусом и маслом",
+            "price": 200,
+            "category": "салат",
+            "volume": "230 г",
+            "image": "https://i3.wp.com/menunedeli.ru/wp-content/uploads/2022/07/157C5A0A-D86D-4DE9-B6DD-8376FD46EE32-1200x900.jpeg?resize=758%2C758&ssl=1",
+            "kind": "veg"
+        },
+        {
+            "keyword": "muffin",
+            "name": "Шоколадные маффины",
+            "price": 190,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://sun9-49.userapi.com/impf/gL2OX7bN9tH3CfoV0pW3wvBZUntYoaw3gcLHhA/5xSATb7b5aU.jpg?size=1000x1000&quality=96&sign=20e411a28ea44952c56e57d8e0f63316&c_uniq_tag=PkpGi325iTu1UtGdqLIP2LgQlF_-NbJaV12nfqLS4Fg&type=album",
+            "kind": "small"
+        },
+        {
+            "keyword": "cheesecake",
+            "name": "Чизкейк",
+            "price": 200,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://sun9-86.userapi.com/impg/dX_GlPkzK0TfYysVAlnLhq-XECOcLclEeoq2qw/vqOXvr1ctqg.jpg?size=1080x1080&quality=95&sign=579e48f0eccee06b565e99f128808eee&c_uniq_tag=gjKFLUVAoAzKahWwJyPNfo27ACUNrVyPR79w_vbtJ5w&type=album",
+            "kind": "small"
+        },
+        {
+            "keyword": "croissant",
+            "name": "Круассаны",
+            "price": 230,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://avatars.mds.yandex.net/i?id=3c86fcd84154bfb54c13064d9181dc07_l-8209870-images-thumbs&n=13",
+            "kind": "small"
+        },
+        {
+            "keyword": "cupcakes",
+            "name": "Блины",
+            "price": 230,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://avatars.mds.yandex.net/i?id=b9b2396df2dd08d33e3061ed57d4aa4e_l-10245547-images-thumbs&n=13",
+            "kind": "medium"
+        },
+        {
+            "keyword": "napoleon",
+            "name": "Наполеон",
+            "price": 230,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://pic.rutubelist.ru/video/41/43/41433940d1c330f7d182ec05a3b2e7d6.jpg",
+            "kind": "big"
+        },
+        {
+            "keyword": "shtrudel",
+            "name": "Штрудель",
+            "price": 230,
+            "category": "десерт",
+            "volume": "150 г",
+            "image": "https://avatars.mds.yandex.net/i?id=e79b4d783810df9017963a146ab9f906_l-12447078-images-thumbs&n=13",
+            "kind": "medium"
+        }
+    ]
+}
