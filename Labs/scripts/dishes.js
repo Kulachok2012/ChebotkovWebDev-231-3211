@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let selectedDishes = {
                 'суп': null,
                 'главное блюдо': null,
-                'напиток': null,
                 'салат': null,
+                'напиток': null,
                 'десерт': null
             };
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPrice += dish['price'];
             }
 
-            // Показываем пустые категории
+            
             function showEmptyCategories() {
                 if (selectedDishes['суп'] === null) {
                     chosenSoup.textContent = 'Блюдо не выбрано';
@@ -178,6 +178,32 @@ document.addEventListener('DOMContentLoaded', () => {
                     chosenDessert.style.display = 'block';
                 }
             }
+
+            document.querySelector('form').addEventListener('reset', function () {
+                soupLabel.style.display = 'none';
+                chosenSoup.style.display = 'none';
+                mainLabel.style.display = 'none';
+                chosenMain.style.display = 'none';
+                drinkLabel.style.display = 'none';
+                chosenDrink.style.display = 'none';
+                saladLabel.style.display = 'none';
+                chosenSalad.style.display = 'none';
+                dessertLabel.style.display = 'none';
+                chosenDessert.style.display = 'none';
+                totalPriceElement.style.display = 'none';
+
+                nothingSelectedMessage.style.display = '';
+
+                selectedDishes = {
+                    'суп': null,
+                    'главное блюдо': null,
+                    'салат': null,
+                    'напиток': null,
+                    'десерт': null
+                };
+
+                totalPrice = 0;
+            })
 
             const soupFilters = document.querySelectorAll('.soup-filter');
             const mainFilters = document.querySelectorAll('.main-filter');
@@ -217,5 +243,71 @@ document.addEventListener('DOMContentLoaded', () => {
             addFiltersToCategory(saladFilters);
             addFiltersToCategory(drinkFilters);
             addFiltersToCategory(dessertFilters);
+
+            const combos = [
+                { name: 'Ланч 1', items: ['суп', 'главное блюдо', 'салат', 'напиток'] },
+                { name: 'Ланч 2', items: ['суп', 'главное блюдо', 'напиток'] },
+                { name: 'Ланч 3', items: ['суп', 'салат', 'напиток'] },
+                { name: 'Ланч 4', items: ['главное блюдо', 'салат', 'напиток'] },
+                { name: 'Ланч 5', items: ['главное блюдо', 'напиток'] },
+            ];
+
+            function validateOrder(selectedItems) {
+                let dishes = Object.keys(selectedItems).filter(key => key !== 'десерт' && selectedItems[key] !== null);
+                let text = '';
+
+                if (dishes.length === 0 && selectedItems['десерт'] === null) {
+                    text = 'Ничего не выбрано. Выберите блюда для заказа'
+                } else if (!(dishes.includes('напиток')) && dishes.length > 0) {
+                    text = 'Выберите напиток';
+                } else if ((dishes.includes('напиток') || !(selectedItems['десерт'] === null))) {
+                    text = 'Выберите главное блюдо';
+                }
+
+                if (dishes.includes('суп') && !dishes.includes('главное блюдо') && !dishes.includes('салат')) {
+                    text = 'Выберите главное блюдо или салат';
+                } else if (dishes.includes('салат') && (!dishes.includes('главное блюдо') || !dishes.includes('суп'))) {
+                    text = 'Выберите суп или главное блюдо';
+                }
+
+                let result;
+                combos.forEach( function (combo) {
+                    console.log(combo.items, dishes);
+                    if (JSON.stringify(dishes) === JSON.stringify(combo.items)) {
+                        result = {valid: true, message: 'Все блюда успешно выбраны'};
+                    }
+                });
+                if (result) {
+                    return result;
+                }
+                return {valid: false, message: text};
+            }
+
+            document.querySelector('form').addEventListener('submit', function (event) {
+                const result = validateOrder(selectedDishes);
+                if (!result.valid) {
+                    console.log(result);
+                    event.preventDefault();
+                    displayNotification(result.message);
+                }
+            });
+
+            function displayNotification(message) {
+                const notification = document.getElementById('notification');
+                notification.style.opacity = 1;
+
+                const notificationMessage = document.createElement('p');
+                notificationMessage.textContent = message
+                notification.appendChild(notificationMessage);
+
+                const notificationButton = document.createElement('button');
+                notificationButton.innerHTML = 'Окей';
+                notificationButton.addEventListener('click', function () {
+                    const notification = document.getElementById('notification');
+                    notification.innerHTML = '';
+                    notification.style.opacity = 0;
+                })
+                notification.appendChild(notificationButton);
+            }
         });
 });
