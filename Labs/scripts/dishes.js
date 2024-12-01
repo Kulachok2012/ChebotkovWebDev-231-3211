@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('dishes.json')
+    fetch('http://lab7-api.std-900.ist.mospolytech.ru/api/dishes')
         .then(response => response.json())
         .then(data => {
             // Сортировка
-            const sortedDishes = data['dishes'].sort((a, b) => {
+            const sortedDishes = data.sort((a, b) => {
                 return a['name'].localeCompare(b['name'], 'ru');
             });
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const volume = document.createElement('p');
                 volume.classList.add('volume');
-                volume.textContent = dish['volume'];
+                volume.textContent = dish['count'];
 
                 const buttonDiv = document.createElement('div');
                 const button = document.createElement('button');
@@ -54,8 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             function populateCards(sectionElement, category) {
+                const categoryCompare = {
+                    'soup': 'суп',
+                    'main-course': 'главное блюдо',
+                    'salad': 'салат',
+                    'drink': 'напиток',
+                    'dessert': 'десерт'
+                }
+
                 sortedDishes.forEach(dish => {
-                    if (dish['category'] === category) {
+                    if (categoryCompare[dish['category']] === category) {
                         const card = createCard(dish);
                         sectionElement.appendChild(card);
                     }
@@ -63,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             populateCards(soupSection, 'суп');
             populateCards(mainDishSection, 'главное блюдо');
-            populateCards(drinkSection, 'напиток');
             populateCards(saladSection, 'салат');
+            populateCards(drinkSection, 'напиток');
             populateCards(dessertSection, 'десерт');
 
             // Добавление товаров и цены
@@ -107,19 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
             function addToOrder(dish) {
                 let isUpdated = false;
 
-                if (dish['category'] === 'суп') {
+                if (dish['category'] === 'soup') {
                     updateCategory('суп', dish, chosenSoup, soupLabel);
                     isUpdated = true;
-                } else if (dish['category'] === 'главное блюдо') {
+                } else if (dish['category'] === 'main-course') {
                     updateCategory('главное блюдо', dish, chosenMain, mainLabel);
                     isUpdated = true;
-                } else if (dish['category'] === 'напиток') {
+                } else if (dish['category'] === 'drink') {
                     updateCategory('напиток', dish, chosenDrink, drinkLabel);
                     isUpdated = true;
-                } else if (dish['category'] === 'салат') {
+                } else if (dish['category'] === 'salad') {
                     updateCategory('салат', dish, chosenSalad, saladLabel);
                     isUpdated = true;
-                } else if (dish['category'] === 'десерт') {
+                } else if (dish['category'] === 'dessert') {
                     updateCategory('десерт', dish, chosenDessert, dessertLabel);
                     isUpdated = true;
                 }
