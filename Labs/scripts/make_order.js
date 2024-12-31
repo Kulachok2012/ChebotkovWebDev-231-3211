@@ -294,55 +294,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!result.valid) {
                     displayNotification(result.message);
                 } else {
-                    let delivery_type;
+                    let delivery_type = 'by_time';
                     if (document.querySelectorAll('input[name="time-type"]:checked')[0].value === 'asap') {
                         delivery_type = 'now';
-                    } else {
-                        delivery_type = 'by_time';
                     }
 
-                    const formData = new FormData();
-                    formData.append('full_name', document.getElementById('name').value);
-                    formData.append('email', document.getElementById('email').value);
-                    formData.append('subscribe', document.getElementById('subscribe').value);
-                    formData.append('phone', document.getElementById('phone').value);
+                    const delivery_time = document.getElementById('delivery-time').value;
+
+                    const localStorageIds = {
+                        'soup_id': window.localStorage.getItem('selected_soup'),
+                        'main_course_id': window.localStorage.getItem('selected_main-course'),
+                        'salad_id': window.localStorage.getItem('selected_salad'),
+                        'drink_id': window.localStorage.getItem('selected_drink'),
+                        'dessert_id': window.localStorage.getItem('selected_dessert')
+                    }
+
+                    const form = document.querySelector('#order_form .order_form');
+                    const formData = new FormData(form);
                     formData.append('delivery_address', document.getElementById('address').value);
                     formData.append('delivery_type', delivery_type);
-                    formData.append('delivery_time', document.getElementById('delivery-time').value);
-                    formData.append('comment', document.getElementById('comments').value);
-                    formData.append('soup_id', window.localStorage.getItem('selected_soup'));
-                    formData.append('main_course_id', window.localStorage.getItem('selected_main-course'));
-                    formData.append('salad_id', window.localStorage.getItem('selected_salad'));
-                    formData.append('drink_id', window.localStorage.getItem('selected_drink'));
-                    formData.append('dessert_id', window.localStorage.getItem('selected_dessert'));
+                    if (delivery_time !== '') {formData.append('delivery_time', delivery_time);}
+                    if (localStorageIds['soup_id'] !== null) {formData.append('soup_id', localStorageIds['soup_id']);}
+                    if (localStorageIds['main_course_id'] !== null) {formData.append('main_course_id', localStorageIds['main_course_id']);}
+                    if (localStorageIds['salad_id'] !== null) {formData.append('salad_id', localStorageIds['salad_id']);}
+                    if (localStorageIds['drink_id'] !== null) {formData.append('drink_id', localStorageIds['drink_id']);}
+                    if (localStorageIds['dessert_id'] !== null) {formData.append('dessert_id', localStorageIds['dessert_id']);}
 
-                    console.log(formData);
-                    
+                    for (let pair of formData.entries()) {
+                        console.log(pair[0]+ ', ' + pair[1] + ', ' + typeof pair[1]);
+                    }
+
                     fetch('https://edu.std-900.ist.mospolytech.ru/labs/api/orders?api_key=e8edbd36-da5f-4862-bda5-06eeb0c60a19', {
                         method: 'POST',
                         body: formData,
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        }
                     })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data['error']) {
-                            displayNotification(data['error']);
-                        } else {
-                            console.log(data);
-                            window.localStorage.removeItem('selected_soup');
-                            window.localStorage.removeItem('selected_main-course');
-                            window.localStorage.removeItem('selected_salad');
-                            window.localStorage.removeItem('selected_drink');
-                            window.localStorage.removeItem('selected_dessert');
-                            displayNotification('Заказ оформлен!');
-                        }
-                    })
-                    .catch((error) => {
-                        displayNotification(error);
-                    })
-
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data['error']) {
+                                displayNotification(data['error']);
+                            } else {
+                                window.localStorage.removeItem('selected_soup');
+                                window.localStorage.removeItem('selected_main-course');
+                                window.localStorage.removeItem('selected_salad');
+                                window.localStorage.removeItem('selected_drink');
+                                window.localStorage.removeItem('selected_dessert');
+                                displayNotification('Заказ оформлен!');
+                                setTimeout(() => {location.reload();}, 3000);
+                            }
+                        })
+                        .catch((error) => {
+                            displayNotification(error);
+                        })
                 }
             });
 
@@ -402,4 +404,4 @@ document.addEventListener('DOMContentLoaded', () => {
                 notification.appendChild(notificationButton);
             }
         });
-}); 
+});

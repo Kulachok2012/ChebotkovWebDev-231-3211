@@ -1,0 +1,55 @@
+body {
+    background-color: #181a1b;
+    color:#e8e6e3;
+    font-family: "Courier New", Monospace;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 0px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: rgb(255, 255, 255);
+}
+
+#active {
+    color: #e8e6e3;
+}
+
+.card-body {
+    background-color: #131414;
+    color:#e8e6e3;
+    padding: 20px;
+}
+
+
+.btn {
+    background-color: rgb(111, 41, 168);
+    color: #e8e6e3;
+    border: none;
+}
+
+.form-control {
+    background-color: #2b2c2c;
+    color: #e8e6e3;
+    border: none;
+    border-radius: 5px;
+}
+
