@@ -1,0 +1,60 @@
+
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+#order-button {
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    color: #ffffff;
+    border-radius: 15px;
+}
+.actions button {
+    border: none;
+    background: none;
+    width: 2rem;
+    cursor: pointer;
+}
+#cart-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 80%;
+    gap: 2%;
+}
+#cart-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 80%;
+    gap: 2%;
+}
+#total-price {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}

@@ -1,0 +1,150 @@
+/* Общий сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка */
+header {
+    background: url('https://i.pinimg.com/originals/b7/ba/3f/b7ba3fe0b9faecde043ab10872d3d48c.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    text-align: center;
+    padding: 20px 0;
+    align-items: center;
+}
+
+/* Стили шапки */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+}
+
+.logo p {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #e0e0e0;
+}
+
+/* Форма авторизации */
+.auth-form {
+    display: flex;
+    align-items: center;
+}
+
+.auth-form form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.auth-form input[type="email"]::placeholder,
+.auth-form input[type="password"]::placeholder {
+    color: #999;
+}
+
+.auth-form .btn-login {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.auth-form .btn-login:hover {
+    background-color: #555;
+}
+
+.auth-form .btn-register {
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.auth-form .btn-register:hover {
+    background-color: #ddd;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    justify-content: center;
+    display: flex;
+    gap: 5rem;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul li {
+    display: inline;
+
+}
+
+nav ul li :hover {
+    color: #4CAF50;
+
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+#active {
+    color: #4CAF50;
+    transform: scale(1.2) translateY(-10px);
+}
+
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: url('https://i.ytimg.com/vi/NoUPqt6yZTI/maxresdefault.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    -webkit-text-stroke: #000000 0.1px;
+    font-size: 1.2rem;
+}

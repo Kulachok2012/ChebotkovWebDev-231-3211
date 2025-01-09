@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINESHOP - Тематический мерч из игр</title>
+    <link rel="stylesheet" href="styles\\style.css">
+    <link rel="stylesheet" href="styles\\cart.css">
+    <script src="scripts/cart.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MINESHOP</h1>
+                <p>Тематический мерч для фанатов игр</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a id="active" href="cart.html">Корзина</a></li>
+                <li><a href="#footer">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="container header-container">
+            <div class="auth-form">
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="Введите email" required>
+                    <input type="password" name="password" placeholder="Введите пароль" required>
+                    <button type="submit" class="btn-login">Войти</button>
+                    <button type="button" class="btn-register">Регистрация</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="cart">
+            <div class="container">
+                <h2>Корзина</h2>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Название</th>
+                            <th>Тип</th>
+                            <th>Цена</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="cart-total">
+                    <p id="total-price"></p>
+                    <button id = "order-button">Заказать</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer id='footer'>
+        <div class="container">
+            <p>Телефон: +7-912-121-21-21</p>
+            <p>© 2025 MINESHOP. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

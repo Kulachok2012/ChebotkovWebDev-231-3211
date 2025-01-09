@@ -1,0 +1,97 @@
+
+/* Раздел о нас */
+.about {
+    padding: 30px 0;
+    background-color: white;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Продукты */
+.products {
+    padding: 40px 0;
+}
+
+.products h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.product-item h3 {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Призыв к действию */
+.cta {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.cta h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.cta p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.cta .btn {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.cta .btn:hover {
+    background: #45a049;
+}
+

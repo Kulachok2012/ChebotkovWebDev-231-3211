@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINESHOP - Тематический мерч из игр</title>
+    <link rel="stylesheet" href="styles\\style.css">
+    <link rel="stylesheet" href="styles\\product.css">
+    <script src="scripts/product.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>MINESHOP</h1>
+                <p>Тематический мерч для фанатов игр</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="cart.html">Корзина</a></li>
+                <li><a href="#footer">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="container header-container">
+            <div class="auth-form">
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="Введите email" required>
+                    <input type="password" name="password" placeholder="Введите пароль" required>
+                    <button type="submit" class="btn-login">Войти</button>
+                    <button type="button" class="btn-register">Регистрация</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section>
+            <div class="container">
+                <h2 id="product-title"></h2>
+                <p id="product-category"></p>
+                <div id="product-item">
+                    <img id="product-image">
+                    <div>
+                        <p id="product-price"></p>
+                        <button type="button" id='product-button'>Добавить в корзину</button>
+                    </div>
+                </div>
+                <div id="product-info">
+                    <h3>Описание товара</h3>
+                    <p id="product-description"></p>
+                    <h3>Характеристики</h3>
+                    <div id="product-characteristics"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer id='footer'>
+        <div class="container">
+            <p>Телефон: +7-912-121-21-21</p>
+            <p>© 2025 MINESHOP. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
