@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         document.getElementById('order-form').addEventListener('submit', submitOrder);
         // Получаем данные о товарах из API
-        const response = await fetch("http://api.std-900.ist.mospolytech.ru/exam-2024-1/api/goods?api_key=e8edbd36-da5f-4862-bda5-06eeb0c60a19");
+        const response = await fetch("https://edu.std-900.ist.mospolytech.ru/exam-2024-1/api/goods?api_key=e8edbd36-da5f-4862-bda5-06eeb0c60a19");
         if (!response.ok) throw new Error('Ошибка получения данных');
         const products = await response.json();
 
