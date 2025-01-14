@@ -1,0 +1,104 @@
+/* Убедимся, что body и html занимают всю высоту */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Устанавливаем Flexbox для всего тела */
+body {
+    display: flex;
+    flex-direction: column;   /* Вертикальная ориентация */
+}
+
+/* Контент занимает доступное пространство */
+main {
+    flex: 1;                 /* Растягиваем эту секцию на оставшееся доступное пространство */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка */
+header {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+
+}
+
+.header-container {
+    display: flex; /* Flexbox для выравнивания по горизонтали */
+    justify-content:space-between; /* Размещаем логотип и меню по краям */
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+/* Логотип */
+.logo img {
+    width: 6rem; /* Размер логотипа */
+    display: block; /* Убираем лишнее пространство */
+    margin-left: 1rem;
+}
+
+/* Меню */
+.menu ul {
+    display: flex; /* Размещаем элементы горизонтально */
+    list-style: none; /* Убираем маркеры списка */
+    gap: 1.5rem; /* Расстояние между иконками */
+    margin-right: 1rem;
+}
+
+.menu li a img {
+    width: 3.5rem; /* Размер иконок */
+    transition: transform 0.2s ease; /* Эффект при наведении (опционально) */
+}
+
+.menu li a img:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Контейнер ограничивает ширину контента */
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#notification-container {
+    position:relative;
+    
+    background-color: #01c6fd;
+    color: #fff;
+    padding: 5px 10px;
+
+}
+
+#notification-container button {
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+#notification-container button:hover {
+    background-color: gray;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZShop</title>
+    <link rel="stylesheet" href="styles\\style.css">
+    <link rel="stylesheet" href="styles\\index.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="#about"><img src="images/logo.png" alt="Logo"></a>
+            </div>
+
+            <div id = "searchTextBut">
+                <form>
+                    <input placeholder="Введите запрос" type="text" id="searchInput">
+                    <button type="submit" id="searchButton"><img src="images/search.svg" alt="Поиск"></button>
+                </form>
+                <ul id="autocompleteList" class="autocomplete-list hidden"></ul>
+            </div>
+            <!-- Меню -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="cart.html"><img src="images/cart.svg" alt="Корзина"></a></li>
+                    <li><a href="orders.html"><img src="images/profile.svg" alt="Профиль"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="notification-container"></div>
+    <main>
+        
+        <section>
+            <div class="sidebar">
+                <h2>Категории</h2>
+                <label><input type="checkbox">Дом & Кухня</label>
+                <label><input type="checkbox">ТВ, аудио & камеры</label>
+                <label><input type="checkbox">Спорт & фитнес</label>
+                <label><input type="checkbox">Красота & здоровье</label>
+                <h2>Стоимость</h2>
+                <label>От <input type="number" id="price-start"> ₽</label>
+                <label>До <input type="number" id="price-end"> ₽</label>
+                <button>Применить</button>
+            </div>
+            <div class="container">
+                <h2>Каталог</h2>
+                <select id="sort_order">
+                    <option id="rating_asc" value="rating_asc">По возрастанию рейтинга</option>
+                    <option id="rating_desc" value="rating_desc" selected="selected">По убыванию рейтинга</option>
+                    <option id="price_asc" value="price_asc">По возрастанию цены</option>
+                    <option id="price_desc" value="price_desc">По убыванию цены</option>
+                </select>
+                <div class="card-container" id="productsContainer">
+                </div>
+            </div>
+          </section>
+    </main>
+
+    <footer id='footer'>
+        <div class="container">
+            <p>Телефон: +7-912-121-21-21</p>
+            <p>© 2025 ZShop. Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

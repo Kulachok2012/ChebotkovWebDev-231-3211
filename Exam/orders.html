@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZShop</title>
+    <link rel="stylesheet" href="styles\\style.css">
+    <link rel="stylesheet" href="styles\\orders.css">
+    <script src="scripts/orders.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+            </div>
+
+            <!-- Меню -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="cart.html"><img src="images/cart.svg" alt="Корзина"></a></li>
+                    <li><a href="#active"><img src="images/profile.svg" alt="Профиль"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="notification-container"></div>
+    <main>
+        <div class="container">
+            <h2>Заказы</h2>
+            <table id="orders">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Дата оформления</th>
+                        <th>Состав заказа</th>
+                        <th>Стоимость</th>
+                        <th>Доставка</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <div class="modal" id="readModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Просмотр заказа</h2>
+                        <button class="close">&times;</button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-buttons">
+                        <button class="cancel">Ок</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal" id="editModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Редактирование заказа</h2>
+                        <button class="close">&times;</button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-buttons">
+                        <button class="cancel">Отмена</button>
+                        <button id="saveButton">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal" id="deleteModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Удаление заказа</h2>
+                        <button class="close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Вы уверены, что хотите удалить заказ?</p>
+                    </div>
+                    <div class="modal-buttons">
+                        <button class="cancel">Отмена</button>
+                        <button id="deleteButton">Да</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id='footer'>
+        <div class="container">
+            <p>Телефон: +7-912-121-21-21</p>
+            <p>© 2025 ZShop. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

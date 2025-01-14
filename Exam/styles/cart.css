@@ -1,0 +1,151 @@
+#productsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5vw, 13vw));
+    gap: 20px;
+    max-width: 100%;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    border-radius: 20px;
+    max-width: 100%;
+    background-color: #e0e0e06b;
+}
+.card img {
+    width: 90%;
+    align-self: center;
+    margin-block: 5%;
+    height: auto;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.card div {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    border:2px solid #01c6fd;
+}
+
+.card p {
+    margin: 0 0 0 5%;
+}
+
+.card div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.oldPrice {
+    font-size: 1.5rem;
+    color: #eb1616;
+    text-decoration: line-through;
+}
+
+.newPrice {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.discountPercent {
+    font-size: 1.5rem;
+    color: #eb1616;
+}
+
+
+
+.card h2 {
+    margin: 0 5% 0 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card button {
+    width: 80%;
+    align-self: center;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 5%;
+    padding: 10px 30px 10px 30px;
+    border: None;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #01c6fd;
+    color: rgb(255, 255, 255);
+}
+
+form {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.order_section{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e0e0e06b;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 10px;
+}
+label {
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    height: 20%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="time"],
+select {
+    
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+    
+.form_actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form_actions button {
+    width: 80%;
+    align-self: center;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 5%;
+    padding: 10px 30px 10px 30px;
+    border: None;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form_actions button:hover {
+    background-color: #01c6fd;
+}

@@ -1,0 +1,200 @@
+#searchTextBut {
+    position: relative; /* Устанавливаем относительное позиционирование для родителя */
+}
+
+.autocomplete-list {
+    position: absolute; /* Абсолютное позиционирование для выпадающего списка */
+    top: 100%; /* Ставим под строкой ввода */
+    left: 0;
+    right: 0; /* Занимаем всю ширину */
+    background-color: white; /* Фон списка */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 5px; /* Скругление углов */
+    z-index: 1000; /* Поднимаем над другими элементами */
+    max-height: 200px; /* Максимальная высота */
+    overflow-y: auto; /* Прокрутка при большом количестве элементов */
+}
+
+.autocomplete-item {
+    padding: 10px; /* Внутренний отступ */
+    cursor: pointer; /* Курсор в виде указателя */
+}
+
+.autocomplete-item:hover {
+    background-color: #f0f0f0; /* Эффект при наведении */
+}
+
+.hidden {
+    display: none; /* Скрывать элемент */
+}
+
+form {
+    display: flex; /* Добавляем flex для формы */
+    align-items: center; /* Выравниваем элементы по центру по вертикали */
+}
+
+#searchButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 2rem; /* Устанавливаем высоту равную высоте input */
+    display: flex; /* Добавляем flex для кнопки */
+    align-items: center; /* Центрируем содержимое кнопки */
+}
+
+#searchButton:hover {
+    background-color: #cecece;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+header button img {
+    width: 2rem;
+}
+
+#searchInput {
+    width: 35rem;
+    height: 2rem;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 2px solid #01c6fd;
+    background-color: #fff;
+    margin-right: 5px; /* Добавляем отступ между input и кнопкой */
+}
+
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    gap: 1rem;
+    background: white;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar h2 {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: fade;
+}
+
+.sidebar input[type=number] {
+    width: 60%;
+}
+
+.sidebar button {
+    margin-left: 15%;
+    border-radius: 15px;
+    width: 50%;
+    height: 5vh;
+    background-color: #01c6fd;
+    color: #ffffff;
+    margin-bottom: auto;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    border: 2px solid #000000;
+}
+
+select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5vw, 13vw));
+    gap: 20px;
+    max-width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    border-radius: 20px;
+    max-width: 100%;
+    background-color: #e0e0e06b;
+}
+.card img {
+    width: 90%;
+    align-self: center;
+    margin-block: 5%;
+    height: auto;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.card div {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    border:2px solid #01c6fd;
+}
+
+.card p {
+    margin: 0 0 0 5%;
+}
+
+.card div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.oldPrice {
+    font-size: 1.5rem;
+    color: #eb1616;
+    text-decoration: line-through;
+}
+
+.newPrice {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.discountPercent {
+    font-size: 1.5rem;
+    color: #eb1616;
+}
+
+
+
+.card h2 {
+    margin: 0 5% 0 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card button {
+    width: 80%;
+    align-self: center;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 5%;
+    padding: 10px 30px 10px 30px;
+    border: None;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #01c6fd;;
+    color: rgb(255, 255, 255);
+}
