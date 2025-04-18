@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добро пожаловать!</h1>
+<p>Это главная страница приложения.</p>
+{% if current_user.is_authenticated %}
+<p>Вы вошли как {{ current_user.username }}.</p>
+{% else %}
+<p>Пожалуйста, войдите в систему, чтобы получить доступ ко всем функциям.</p>
+{% endif %}
+{% endblock %}

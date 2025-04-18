@@ -2,20 +2,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         
         document.getElementById('order-form').addEventListener('submit', submitOrder);
-        // Получаем данные о товарах из API
+        
         const response = await fetch("https://edu.std-900.ist.mospolytech.ru/exam-2024-1/api/goods?api_key=e8edbd36-da5f-4862-bda5-06eeb0c60a19");
         if (!response.ok) throw new Error('Ошибка получения данных');
         const products = await response.json();
 
-        // Получаем товары из корзины
+        
         const cartItems = getCartItems();
 
-        // Фильтруем только те товары, которые есть в корзине
+        
         const cartProducts = products.filter(product =>
             cartItems.includes(product.id)
         );
 
-        // Заполняем корзину отфильтрованными товарами
+        
         fillCart(cartProducts);
     } catch (error) {
         console.error('Ошибка:', error);
@@ -28,35 +28,35 @@ function getCartItems() {
 
 async function fillCart(cartProducts) {
     const container = document.getElementById("productsContainer");
-    container.innerHTML = ''; // Очищаем контейнер перед заполнением
+    container.innerHTML = ''; 
 
     let totalPrice = 0;
 
-    // Создаем карточки для товаров в корзине
+   
     cartProducts.forEach((product) => {
-        totalPrice += product.discount_price || product.actual_price; // Подсчет общей стоимости
+        totalPrice += product.discount_price || product.actual_price; 
         const card = createCard(product);
         container.appendChild(card);
     });
 
-    // Добавляем обработчики для даты и времени доставки
+    
     const deliveryDateInput = document.getElementById('delivery_date');
     const deliveryTimeInput = document.getElementById('delivery-time');
     
     function calculateDeliveryPrice() {
-        let deliveryPrice = 200; // Базовая стоимость
+        let deliveryPrice = 200; 
 
         if (deliveryDateInput.value && deliveryTimeInput.value) {
             const selectedDate = new Date(deliveryDateInput.value);
             const dayOfWeek = selectedDate.getDay();
             const selectedTime = deliveryTimeInput.value;
 
-            // Проверяем выходные (суббота - 6, воскресенье - 0)
+            
             if (dayOfWeek === 0 || dayOfWeek === 6) {
                 deliveryPrice += 300;
             }
 
-            // Проверяем вечернее время
+            
             if (selectedTime === "18:00-22:00") {
                 deliveryPrice += 200;
             }
@@ -69,7 +69,7 @@ async function fillCart(cartProducts) {
         const deliveryPrice = calculateDeliveryPrice();
         const finalPrice = totalPrice + deliveryPrice;
         
-        // Обновляем отображение цен
+        
         const totalPriceElement = document.querySelector('#total-price');
         totalPriceElement.innerHTML = `
             Стоимость товаров: ${totalPrice} ₽<br>
@@ -78,13 +78,13 @@ async function fillCart(cartProducts) {
         `;
     }
 
-    // Добавляем слушатели событий
+    
     if (deliveryDateInput && deliveryTimeInput) {
         deliveryDateInput.addEventListener('change', updateTotalPrice);
         deliveryTimeInput.addEventListener('change', updateTotalPrice);
     }
 
-    // Инициализируем отображение цены
+    
     updateTotalPrice();
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -163,9 +163,9 @@ function createCard(product) {
     infoDiv.appendChild(title);
 
     const button = document.createElement("button");
-    const handleProductClick = () => removeCartElement(product.id); // Изменено: удаление товара из корзины
+    const handleProductClick = () => removeCartElement(product.id); 
     button.addEventListener('click', handleProductClick);
-    button.textContent = "Удалить из корзины"; // Изменен текст кнопки
+    button.textContent = "Удалить из корзины"; 
     infoDiv.appendChild(button);
 
     return card;
@@ -176,7 +176,7 @@ async function removeCartElement(id) {
     if (cart.includes(id)) {
         cart = cart.filter(itemId => itemId !== id);
         localStorage.setItem('cart', JSON.stringify(cart));
-        location.reload(); // Обновляем страницу, чтобы отобразить изменения
+        location.reload(); 
     } else {
         console.log(`Товар с ID ${id} не найден в корзине.`);
     }

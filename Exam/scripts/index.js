@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const query = searchInput.value.trim();
         if (!query) {
             autocompleteList.classList.add('hidden');
-            autocompleteList.innerHTML = ''; // Очищаем список
+            autocompleteList.innerHTML = ''; 
             return;
         }
 
@@ -129,18 +129,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (suggestions.length === 0) {
             autocompleteList.classList.add('hidden');
-            autocompleteList.innerHTML = ''; // Очищаем список
+            autocompleteList.innerHTML = ''; 
             return;
         }
 
-        // Генерация списка подсказок
+        
         autocompleteList.innerHTML = '';
         suggestions.forEach(suggestion => {
             const listItem = document.createElement('li');
             listItem.textContent = suggestion;
             listItem.classList.add('autocomplete-item');
 
-            // При клике на подсказку — подставляем её в поле ввода
+            
             listItem.addEventListener('click', () => {
                 searchInput.value = suggestion;
                 autocompleteList.classList.add('hidden');
@@ -183,12 +183,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    /**
-     * Демонстрационные функции, которые нужно заменить своими.
-     * Здесь лишь имитация функциональности:
-     */
-
-    // Пример: фильтруем список товаров
+  
+    // фильтруем список товаров
     function filterProductsBySearch(products, query) {
         return products.filter(product => product.name.toLowerCase().includes(query));
     }
