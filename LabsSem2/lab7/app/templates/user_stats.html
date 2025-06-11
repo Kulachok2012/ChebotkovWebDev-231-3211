@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Статистика по пользователям</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Пользователь</th>
+            <th>Посещения</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in stats %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+                {% if stat[0] %}
+                    {{ stat[0].last_name }} {{ stat[0].first_name }}
+                {% else %}
+                    Неаутентифицированные пользователи
+                {% endif %}
+            </td>
+            <td>{{ stat[1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('export_csv', report_type='user') }}" class="btn btn-primary">
+    Экспорт в CSV
+</a>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Статистика по страницам</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Страница</th>
+            <th>Посещения</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in stats %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ stat.path }}</td>
+            <td>{{ stat.visits }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('export_csv', report_type='page') }}" class="btn btn-primary">
+    Экспорт в CSV
+</a>
+{% endblock %}

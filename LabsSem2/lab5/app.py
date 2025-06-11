@@ -3,23 +3,20 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # В реальном приложении используйте надёжный ключ
+app.secret_key = 'secret_key'  
 
-# Настройка Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 login_manager.login_message = 'Для доступа к этой странице необходимо войти в систему.'
 login_manager.login_message_category = 'info'
 
-# Модель пользователя
 class User(UserMixin):
     def __init__(self, id, username, password):
         self.id = id
         self.username = username
         self.password = password
 
-# Создадим тестового пользователя
 users = [
     User(1, 'user', generate_password_hash('qwerty'))
 ]
@@ -39,7 +36,6 @@ def home():
 
 @app.route('/visits')
 def visits_counter():
-    # Увеличиваем счётчик посещений в сессии
     session['visits'] = session.get('visits', 0) + 1
     return render_template('visits.html', visits=session['visits'])
 
@@ -50,14 +46,12 @@ def login():
         password = request.form.get('password')
         remember = True if request.form.get('remember') else False
         
-        # Ищем пользователя
+        
         user = next((u for u in users if u.username == username), None)
         
-        # Проверяем пароль
         if user and check_password_hash(user.password, password):
             login_user(user, remember=remember)
             
-            # Перенаправляем на страницу, которую пользователь хотел открыть
             next_page = request.args.get('next')
             return redirect(next_page or url_for('home'))
         

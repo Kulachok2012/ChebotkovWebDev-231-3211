@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Журнал посещений</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Пользователь</th>
+            <th>Страница</th>
+            <th>Дата</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs.items %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+                {% if log.user %}
+                    {{ log.user.last_name }} {{ log.user.first_name }}
+                {% else %}
+                    Неаутентифицированный пользователь
+                {% endif %}
+            </td>
+            <td>{{ log.path }}</td>
+            <td>{{ log.created_at.strftime('%d.%m.%Y %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Пагинация -->
+<nav>
+    <ul class="pagination">
+        {% for page_num in logs.iter_pages() %}
+            <li class="page-item{% if page_num == logs.page %} active{% endif %}">
+                {% if page_num != None %}
+                    <a class="page-link" href="{{ url_for('visit_logs', page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+<div class="d-flex flex-row gap-2">
+    {% if current_user.role.id == 2 %}
+        <a class="btn btn-secondary" href="{{ url_for('page_stats') }}">Статистика по страницам</a>
+        <a class="btn btn-secondary" href="{{ url_for('user_stats') }}">Статистика по пользователям</a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="title-area position-relative" style="background-image: url({{ course.bg_image.url }});">
+    <div class="h-100 w-100 py-5 d-flex text-center position-absolute" style="background-color: rgba(0, 0, 0, 0.65);">
+        <div class="m-auto">
+            <h1 class="title mb-3 font-weight-bold">{{ course.name }}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    {% if current_user.is_authenticated %}
+        {% if current_user_review %}
+        <section class="mb-5">
+            <h2 class="mb-3 text-center text-uppercase font-weight-bold">Ваш отзыв</h2>
+            <div>
+                <div class="card mb-3">
+                    <div class="card-header d-flex flex-row justify-content-between">
+                        <div class="d-flex flex-row gap-2">
+                            <img class="img-fluid rounded-circle cursor-pointer review-img" src="{{ url_for('static', filename='images/default-profile-picture-300x300.jpeg') }}" alt="profile-pic">
+                            <h3 class="card-text">{{ current_user.last_name }} {{ current_user.first_name }} {{ current_user.middle_name }}</h3>
+                        </div>
+                        {% if current_user_review.rating > 3 %}
+                            <h3 class="card-text text-success">{{ rates[current_user_review.rating] }}</h3>
+                        {% endif %}
+
+                        {% if current_user_review.rating < 3 %}
+                            <h3 class="card-text text-danger">{{ rates[current_user_review.rating] }}</h3>
+                        {% endif %}
+
+                        {% if current_user_review.rating == 3 %}
+                            <h3 class="card-text text-warning">{{ rates[current_user_review.rating] }}</h3>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="crad-text">{{ current_user_review.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% else %}
+
+        <section class="mb-5">
+            <div>
+                <h2 class="mb-3 text-center text-uppercase font-weight-bold">Оставить отзыв</h2>
+                <form class="w-100" method="POST" action="{{ url_for('courses.create_review') }}" enctype="multipart/form-data">
+                    <div class="mb-3 w-100 d-flex justify-content-center">
+                        <div class="col-md-6 p-2 d-flex flex-column">
+                            <div class="mb-3">
+                                <input type="hidden" name="author_id" value="{{ current_user.id }}">
+                                <label for="text">Текст</label>
+                                <input class="form-control" type="text" name="text" id="text">
+                            </div>
+                            <div class="mb-3">
+                                <label for="rating">Рейтинг</label>
+                                <select class="form-select" name="rating" id="rating">
+                                    {% for rate in rates %}
+                                        <option>{{ rate }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                    <input type="hidden" name="course_id" value="{{ course.id }}">
+                    <div class="mb-3 text-center">
+                        <input type="submit" class="btn btn-dark" value="Сохранить">
+                    </div>
+                </form>
+            </div>
+        </section>
+        {% endif %}
+    {% endif %}
+    <section class="reviews mb-5">
+        <h2 class="mb-3 text-center text-uppercase font-weight-bold">Отзывы</h2>
+        <!-- Добавление фильтрации отзывов -->
+        <div class="mb-3 text-center">
+            <button class="btn btn-outline-primary" onclick="filterReviews('all')">Все отзывы</button>
+            <button class="btn btn-outline-success" onclick="filterReviews('positive')">Положительные</button>
+            <button class="btn btn-outline-danger" onclick="filterReviews('negative')">Отрицательные</button>
+        </div>
+
+        {% if (course.reviews|length >= 1 and current_user_review) or course.reviews|length > 0 %}
+            <div id="reviews-list">
+                {% for review in course.reviews %}
+                    {% if review != current_user_review %}
+                        <div class="card mb-3 review-item" data-rating="{{ review.rating }}">
+                            <div class="card-header d-flex flex-row justify-content-between">
+                                <div class="d-flex flex-row gap-2">
+                                    <img class="img-fluid rounded-circle cursor-pointer review-img" src="{{ url_for('static', filename='images/default-profile-picture-300x300.jpeg') }}" alt="profile-pic">
+                                    <h3 class="card-text">{{ review.user.last_name }} {{ review.user.first_name }} {{ review.user.middle_name }}</h3>
+                                </div>
+
+                                {% if review.rating > 3 %}
+
+                                    <h3 class="card-text text-success">{{ rates[review.rating] }}</h3>
+
+                                {% endif %}
+
+                                {% if review.rating < 3 %}
+
+                                    <h3 class="card-text text-danger">{{ rates[review.rating] }}</h3>
+
+                                {% endif %}
+
+                                {% if review.rating == 3 %}
+
+                                    <h3 class="card-text text-warning">{{ rates[review.rating] }}</h3>
+
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <p class="crad-text">{{ review.text }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        {% else %}
+
+            <h3>Нет отзывов</h3>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+<script>
+    function filterReviews(type) {
+        const reviews = document.querySelectorAll('.review-item');
+        reviews.forEach(review => {
+            const rating = parseInt(review.getAttribute('data-rating'));
+            if (type === 'all' || 
+                (type === 'positive' && rating > 3) || 
+                (type === 'negative' && rating < 3)) {
+                review.style.display = 'block';
+            } else {
+                review.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+{% endblock %}
