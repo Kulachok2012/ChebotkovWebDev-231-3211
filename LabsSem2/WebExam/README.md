@@ -1,4 +1,4 @@
 ## Экзамен по разработке веб-приложений
-### Балашов Игорь 231-3211
+### Чеботков Дмитрий 231-3211
 
-https://mangekyo.pythonanywhere.com/books/
+https://Kulachok2012.pythonanywhere.com
